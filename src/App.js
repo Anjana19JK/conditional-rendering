@@ -175,8 +175,75 @@ class App extends Component {
 
 export default App
 
+//Default props
+
+import {Component} from 'react'
+
+import Welcome from './components/Welcome'
+
+import './App.css'
+
+class App extends Component {
+  state = {
+    isLoggedIn: false,
+  }
+
+  render() {
+    const {isLoggedIn} = this.state
+    return (
+      <div className="container">
+        <Welcome />
+        {isLoggedIn && <button type="button">Logout</button>}
+        {!isLoggedIn && <button type="button">Login</button>}
+      </div>
+    )
+  }
+}
+
+
+import './index.css'
+
+const Welcome = props => {
+  const {name, greeting} = props
+  return (
+    <h1 className="message">
+      {greeting}, {name}
+    </h1>
+  )
+}
+
+Welcome.defaultProps = {
+  name: 'Rahul',
+  greeting: 'Hello',
+}
+
+export default Welcome
 
 
 
+//Default props passing values
 
+import {Component} from 'react'
 
+import Welcome from './components/Welcome'
+
+import './App.css'
+
+class App extends Component {
+  state = {
+    isLoggedIn: false,
+  }
+
+  render() {
+    const {isLoggedIn} = this.state
+    return (
+      <div className="container">
+        <Welcome greeting="Hi" />
+        {isLoggedIn && <button type="button">Logout</button>}
+        {!isLoggedIn && <button type="button">Login</button>}
+      </div>
+    )
+  }
+}
+
+export default App
