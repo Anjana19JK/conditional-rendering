@@ -1,3 +1,5 @@
+//coditional rendering - using if else statement
+
 import {Component} from 'react'
 
 import Welcome from './components/Welcome'
@@ -28,3 +30,153 @@ class App extends Component {
 }
 
 export default App
+
+
+//coditional rendering - using element variables
+
+import {Component} from 'react'
+
+import Welcome from './components/Welcome'
+
+import './App.css'
+
+class App extends Component {
+  state = {
+    isLoggedIn: false,
+  }
+
+  render() {
+    const {isLoggedIn} = this.state
+    let authButton
+    if (isLoggedIn === true) {
+      authButton = <button type="button">Logout</button>
+    } else {
+      authButton = <button type="button">Login</button>
+    }
+
+    return (
+      <div className="container">
+        <Welcome greeting="Hello" name="User" />
+        {authButton}
+      </div>
+    )
+  }
+}
+
+export default App
+
+//Using Ternary Operators
+
+mport {Component} from 'react'
+
+import Welcome from './components/Welcome'
+
+import './App.css'
+
+class App extends Component {
+  state = {
+    isLoggedIn: false,
+  }
+
+  render() {
+    const {isLoggedIn} = this.state
+    return (
+      <div className="container">
+        <Welcome greeting="Hello" name="User" />
+        {isLoggedIn ? (
+          <button type="button">Logout</button>
+        ) : (
+          <button type="button">Login</button>
+        )}
+      </div>
+    )
+  }
+}
+
+export default App
+
+//Display no buttons
+
+import {Component} from 'react'
+
+import Welcome from './components/Welcome'
+
+import './App.css'
+
+class App extends Component {
+  state = {
+    isLoggedIn: false,
+  }
+
+  render() {
+    const {isLoggedIn} = this.state
+    return (
+      <div className="container">
+        <Welcome greeting="Hello" name="User" />
+        {isLoggedIn ? <button type="button">Logout</button> : null}
+      </div>
+    )
+  }
+}
+
+export default App
+
+
+//Using Logical && Operator and not display if false
+
+import {Component} from 'react'
+
+import Welcome from './components/Welcome'
+
+import './App.css'
+
+class App extends Component {
+  state = {
+    isLoggedIn: false,
+  }
+
+  render() {
+    const {isLoggedIn} = this.state
+    return (
+      <div className="container">
+        <Welcome greeting="Hello" name="User" />
+        {isLoggedIn && <button type="button">Logout</button>}
+      </div>
+    )
+  }
+}
+
+export default App
+
+//Using Logical && Operator
+
+import {Component} from 'react'
+
+import Welcome from './components/Welcome'
+
+import './App.css'
+
+class App extends Component {
+  state = {
+    isLoggedIn: false,
+  }
+
+  render() {
+    const {isLoggedIn} = this.state
+    return (
+      <div className="container">
+        <Welcome greeting="Hello" name="User" />
+        {isLoggedIn && <button type="button">Logout</button>}
+        {!isLoggedIn && <button type="button">Login</button>}
+      </div>
+    )
+  }
+}
+
+export default App
+
+
+
+
+
+
